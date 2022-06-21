@@ -15,6 +15,8 @@ class Solution(object):
         else:
             previous = -1 * 10 ** 4
         
+        #Check 3Sum solution for understanding of this algorithm
+        
         for i,a in enumerate(nums):
             if i > 0 and a == nums[i-1]:
                 #if past first index and a is equal to previous in sort
