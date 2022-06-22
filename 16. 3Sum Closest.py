@@ -6,16 +6,9 @@ class Solution(object):
         :rtype: int
         """
         
+        #In java: Arrays.sort(nums)
         nums.sort()
-        res = 0
-        previous = 0
-        
-        if target >= 0:
-            previous = 10 ** 4
-        else:
-            previous = -1 * 10 ** 4
-        
-        #Check 3Sum solution for understanding of this algorithm
+        res = nums[0] + nums[1] + nums[len(nums) - 1]
         
         for i,a in enumerate(nums):
             if i > 0 and a == nums[i-1]:
@@ -29,15 +22,13 @@ class Solution(object):
                 if target == threeSum:
                     return target
                 
-                if target < 0:
-                    if target - threeSum > previous:
-                        res = threeSum
-                        previous = target - threeSum
+                if threeSum > target:
+                    r -= 1
                 else:
-                    if target - threeSum < previous:
-                        res = threeSum
-                        previous = target - threeSum
+                    l += 1
                 
-                l += 1
+                #find absolute value comparison
+                if abs(threeSum - target) < abs(res - target):
+                    res = threeSum
         
         return res
