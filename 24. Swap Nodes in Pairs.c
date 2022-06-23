@@ -42,24 +42,19 @@ struct ListNode* swapPairs(struct ListNode* head){
             break;
         }
         
-        //if (track->next->next->next == NULL) {
-            //swap = track->next->next;
-            //track = curr;
-            //track->next = prev;
-            //prev->next = swap;
-            //break;
-        //}
         
         swap = track->next->next;
-        //middle = track->next->next;
         track = curr;
         track->next = prev;
         prev->next = swap;
-        prev_inc = prev;
         
         if (count != 0) {
             prev_inc->next = curr;
         }
+        
+        prev_inc = prev;
+        
+        
         
         track = swap;
         count++;
